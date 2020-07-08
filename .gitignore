@@ -1,7 +1,8 @@
-# Pycharm
-.idea
+# vscode
+.vscode
 
 # local test script
 test.py
 input.txt
+output.txt
 
