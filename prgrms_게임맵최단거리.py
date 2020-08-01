@@ -48,7 +48,6 @@ def bfs2(R, C, board, check, queue):
     step = 1
 
     while queue:
-
         step += 1
         for _ in range(len(queue)): # 큐에 담긴 인접 노드만큼 반복
             row, col = queue.popleft()
@@ -77,13 +76,12 @@ def solution2(board):
     queue = deque([(0, 0)])
     check[0][0] = True
 
-    answer = bfs(R, C, board, check, queue)
+    answer = bfs2(R, C, board, check, queue)
 
     return answer
 
 
 
-
-
 board = [[1, 0, 1, 1, 1], [1, 0, 1, 0, 1], [1, 0, 1, 1, 1], [1, 1, 1, 0, 1], [0, 0, 0, 0, 1]]
-print(solution(board))
+print(solution1(board)) # 11
+print(solution2(board)) # 11
