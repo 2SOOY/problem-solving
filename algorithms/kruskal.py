@@ -13,8 +13,8 @@ def find(parents, node):
 
 # 주어진 노드 트리를 하나의 트리로 합치는 함수
 def union(parents, ranks, node1, node2):
-    root1 = find(parents, parents[node1])
-    root2 = find(parents, parents[node2])
+    root1 = find(parents, node1)
+    root2 = find(parents, node2)
 
     # union-by-rank
     # 두 트리의 높이가 다를 경우
@@ -44,10 +44,9 @@ def kruskal(graph):
 
     # 3. union-find를 활용하여 mst 찾기
     for edge in edges:
-        cost, node1, node2 = edge
+        _, node1, node2 = edge
         if find(parents, node1) != find(parents, node2):
             union(parents, ranks, node1, node2)
-            print(parents, ranks)
             mst.append(edge)
 
     return mst
@@ -82,5 +81,5 @@ graph = {
 }
 
 
-kruskal(graph)
+print(kruskal(graph))
 # [(5, 'A', 'D'), (5, 'C', 'E'), (6, 'D', 'F'), (7, 'A', 'B'), (7, 'B', 'E'), (9, 'E', 'G')]
