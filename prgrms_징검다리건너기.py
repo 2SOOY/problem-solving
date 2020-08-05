@@ -7,13 +7,14 @@ def is_possible(stones, k, mid):
     for stone in stones:
 
         # m번째 사람이 해당 돌을 밟을 수 없다
-        if stone - mid < 0: 
+        if stone - mid < 0: # ** <= 이면 밟을 수 있는 경우도 포함하는 것 
             zeros += 1
 
             # 밟을 수 없는 돌이 k개 => 건널 수 없음
             if zeros == k:
                 return False
 
+        # 밟을 수 있는 돌이 생기면 초기화
         else:
             zeros = 0
 
@@ -31,7 +32,7 @@ def solution(stones, k):
 
         # mid 명의 사람이 돌다리를 건널 수 있는지 판별
         if is_possible(stones, k, mid):
-            answer = mid
+            answer = mid # 정답 갱신
             start = mid + 1
         else:
             end = mid - 1
